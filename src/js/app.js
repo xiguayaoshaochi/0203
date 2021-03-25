@@ -6,6 +6,7 @@ var red_ = require('../images/sma_img/red.png');
 var yellow_ = require('../images/sma_img/yellow.png');
 var quan_ = require('../images/sma_img/quan.png');
 var ssg_ = require('../images/sma_img/ssg.png');
+var sguang_ = require('../images/sma_img/sguang.png');
 
 var btn1 = document.createElement('div');
 btn1.id='btn1';
@@ -43,20 +44,8 @@ window.content = new cjs.Container();
 // person.addChild(content);
 
 window.ss = addsquare();
-var perbounds = ss.getBounds();
-var w = perbounds.width;
-var h = perbounds.height;
-var x = perbounds.x;
-var y = perbounds.y;
-var ss1 = ss.clone();
 
 
-window.bg_shape = new cjs.Shape();
-bg_shape.graphics.setStrokeStyle(5).beginStroke("#fff").drawRoundRect(0 - 3, 0 - 3, w + 6, h + 6,5);
-bg_shape.shadow = new createjs.Shadow("#333", 0, 0, 10);
-ss1.addChild(bg_shape);
-person.addChild(ss1);
-person.setChildIndex(ss1, 0);
 
 function addsquare() {
   var Consquare = new cjs.Container();
@@ -117,10 +106,31 @@ function addsquare() {
   person.addChild(Consquare);
   Consquare.x=screenMiddle-280;
   Consquare.y = screenMiddle-(canvas.height-100-200-150)/2;
+
+
   return Consquare;
 }
 ss.alpha=1;
 
+
+
+
+setTimeout(() => {
+  var perbounds = ss.getBounds();
+  var w = perbounds.width;
+  var h = perbounds.height;
+  var x = perbounds.x;
+  var y = perbounds.y;
+  var ss1 = ss.clone();
+
+
+  window.bg_shape = new cjs.Shape();
+  bg_shape.graphics.setStrokeStyle(5).beginStroke("#fff").drawRoundRect(0 - 3, 0 - 3, w+6, h + 6, 5);
+  bg_shape.shadow = new createjs.Shadow("#333", 0, 0, 10);
+  ss1.addChild(bg_shape);
+  person.addChild(ss1);
+  person.setChildIndex(ss1, 0);
+}, 0);
 var sb1 = wb.small_bg.clone();
 sb1.x = 90;
 sb1.y = 600 +  (canvas.height - 185 - 50 - 560 - 200) / 2;
@@ -133,9 +143,12 @@ var sb3 = wb.small_bg.clone();
 sb3.x = 475;
 sb3.y = 600 + (canvas.height - 185 - 50 - 560 - 200) / 2;
 
-ss.addChild(sb1);
-ss.addChild(sb2);
-ss.addChild(sb3);
+setTimeout(() => {
+  ss.addChild(sb1);
+  ss.addChild(sb2);
+  ss.addChild(sb3);
+}, 1);
+
 
 window.t1 = new addEl('111100',1,[53,54,55,63,null,null],blue_);
 window.t2 = new addEl('100100100', 2, [48, null, null, 58, null, null, 68, null, null], red_);
@@ -172,23 +185,23 @@ ss.addChild(c4);
 // t3 460 631.5
 var xx=56*0.5;
 var yy = 56 * 0.5 + 56 * 2;
-c1.x = 252.4;
-c1.y = 337.3;
+c1.x = 167.8;
+c1.y = 279.7;
 c1.alpha=0;
 c1.scaleX = c1.scaleY =1;
 
-c2.x = 475.6;
-c2.y = 308.4;
+c2.x = 448.6;
+c2.y = 223.1;
 c2.alpha = 0;
 c2.scaleX = c2.scaleY = 1;
 
-c3.x = 336.3;
-c3.y = 223.6;
+c3.x = 279.6;
+c3.y = 166.8;
 c3.alpha = 0;
 c3.scaleX = c3.scaleY = 1;
 
-c4.x = 420.4;
-c4.y = 112.2;
+c4.x = 335.7;
+c4.y = 55.9;
 c4.alpha = 0;
 c4.scaleX = c4.scaleY = 1;
 
@@ -212,40 +225,44 @@ function addEl(type,site,arr,color) {
   });
   var xx = 56*0.5;
   var yy = 56*0.5;
-  if (site && site==1) {
-    _this.con.x = 56 / 2 + 10 - xx;
-    _this.con.y = 570 + (canvas.height - 185 - 50 - 560 - 200) / 2 - 22;
-  } else if (site && site == 2) {
-    _this.con.x = (56 / 2) * 2 + 56 * 3 + 45 - xx+15;
-    _this.con.y = 550 + (canvas.height - 185 - 50 - 560 - 200) / 2 - yy;
-  } else if (site && site == 3) {
-    _this.con.x = 55 - xx+10;
-    _this.con.y = 570 + (canvas.height - 185 - 50 - 560 - 200) / 2 - 25;
-  } else if (site && site == 4) {
-    _this.con.x = 234 - xx-3;
-    _this.con.y = 570 + (canvas.height - 185 - 50 - 560 - 200) / 2 - yy;
-  } else if (site && site == 5) {
-    _this.con.x = 443 - xx+5;
-    _this.con.y = 570 + (canvas.height - 185 - 50 - 560 - 200) / 2 - yy+5;
-  } else if (site && site == 7) {
-    _this.con.x = 234 - xx-3;
-    _this.con.y = 570 + (canvas.height - 185 - 50 - 560 - 200) / 2 - yy+10;
-  }
+  setTimeout(() => {
+    if (site && site==1) {
+      _this.con.x = 56 / 2 + 10 - xx;
+      _this.con.y = 570 + (canvas.height - 185 - 50 - 560 - 200) / 2 - 22;
+    } else if (site && site == 2) {
+      _this.con.x = (56 / 2) * 2 + 56 * 3 + 45 - xx+15;
+      _this.con.y = 550 + (canvas.height - 185 - 50 - 560 - 200) / 2 - yy;
+    } else if (site && site == 3) {
+      _this.con.x = 55 - xx+10;
+      _this.con.y = 570 + (canvas.height - 185 - 50 - 560 - 200) / 2 - 25;
+    } else if (site && site == 4) {
+      _this.con.x = 234 - xx-3;
+      _this.con.y = 570 + (canvas.height - 185 - 50 - 560 - 200) / 2 - yy;
+    } else if (site && site == 5) {
+      _this.con.x = 443 - xx+5;
+      _this.con.y = 570 + (canvas.height - 185 - 50 - 560 - 200) / 2 - yy+5;
+    } else if (site && site == 7) {
+      _this.con.x = 234 - xx-3;
+      _this.con.y = 570 + (canvas.height - 185 - 50 - 560 - 200) / 2 - yy+10;
+    }
+  }, 0);
 
+  setTimeout(() => {
+    var perbounds = _this.con.getBounds();
+    var w = perbounds.width;
+    var h = perbounds.height;
+    var x = perbounds.x;
+    var y = perbounds.y;
+    _this.con.regX = w * 0.5;
+    _this.con.regY = h * 0.5;
+
+    _this.con.x = _this.con.x + _this.con.regX;
+    _this.con.y = _this.con.y + _this.con.regY;
+
+    ss.addChild(_this.con);
+    _this.con.scaleX = _this.con.scaleY = 0.6;
+  }, 1);
   
-  var perbounds = _this.con.getBounds();
-  var w = perbounds.width;
-  var h = perbounds.height;
-  var x = perbounds.x;
-  var y = perbounds.y;
-  _this.con.regX = w * 0.5;
-  _this.con.regY = h * 0.5;
-
-  _this.con.x = _this.con.x + _this.con.regX;
-  _this.con.y = _this.con.y + _this.con.regY;
-
-  ss.addChild(_this.con);
-  _this.con.scaleX = _this.con.scaleY = 0.6;
   // ss.addChild(sb);
   return _this.con;
 }
@@ -283,7 +300,7 @@ setTimeouc(() => {
    setTimeout(() => {
      ac1.start(70);
      clearImg(60, 69)
-   }, 150);
+   }, 350);
  }
 
  function step2() {
@@ -297,7 +314,7 @@ setTimeouc(() => {
    setTimeout(() => {
      ac1.start(70);
      clearImg(40, 49)
-   }, 150);
+   }, 350);
    cjs.Tween.get(t2).to({
      alpha: 1
    }, 350).wait(500).call(() => {
@@ -323,7 +340,7 @@ setTimeouc(() => {
     setTimeout(() => {
       ac1.start(70);
       clearImg(8, 98, "shu");
-    }, 150);
+    }, 350);
   }
 
   function step4() {
@@ -405,8 +422,8 @@ setTimeouc(() => {
           scaleY: 1,
           scaleX: 1
         }, 500, cjs.Ease.backOut);
-      }, 350);
-    }, 150);
+      }, 1300);
+    }, 350);
   }
 }, 350);
 
@@ -559,6 +576,13 @@ window.movefun = function (obj,target,callback) {
     _this.shape.alpha = 0.01;
     _this.obj.parent.addChild(_this.shape)
     _this.shape.addEventListener("mousedown", function (e) {
+      choose.play();
+      function cancel(params) {
+        e.target.removeAllEventListeners();
+      }
+      if (bgm_state == false) {
+        bgm_play();
+      }
       if (tip1.lock) {
         tip1.stop();
       }
@@ -588,9 +612,13 @@ window.movefun = function (obj,target,callback) {
           })
         }
       });
-      
+
       stage.addEventListener('stagemouseup', function (e) {
+        _this.obj.children.forEach((el) => {
+          ss.children[el.id].children[2].alpha = 0;
+        })
         if (_this.checkAll()) {
+          cancel();
           callback();
         }else{
           _this.obj.x = x2;
@@ -603,6 +631,7 @@ window.movefun = function (obj,target,callback) {
         
         e.target.removeAllEventListeners();
       });
+      
     });
   }
   _this.move();
@@ -623,19 +652,23 @@ window.movefun = function (obj,target,callback) {
 
       _this.obj.children.forEach((el)=>{
         // ss.children[el.id].removeChild(ss.children[el.id].children[1]);
+        createjs.Tween.removeTweens(ss.children[el.id].children[1]);
+        ss.children[el.id].children[1].scaleX = ss.children[el.id].children[1].scaleY =1;
+        ss.children[el.id].children[1].rotation = 0;
         ss.children[el.id].children[1].alpha = 1;
         ss.children[el.id].children[1].image.src = el.color;
+        
         var simgname = "simg" + random1(1, 9999);
         var simg = addBitmap(simgname, quan_, 0, 0, "addArr6");
         simg.regX = 62 * 0.5;
         simg.regY = 62 * 0.5;
         simg.x = simg.x + 62 * 0.5-3;
         simg.y = simg.y + 62 * 0.5-3;
-        ss.children[el.id].addChild(simg, ss.children[el.id].children[1]);
+        ss.children[el.id].addChild(simg);
         // ss.children[el.id].setChildIndex(simg,0);
         cjs.Tween.get(simg).to({
           alpha: 0
-        }, 150)
+        }, 750)
       })
       _this.obj.alpha=0;
       return true
@@ -679,13 +712,18 @@ window.handAnimation = function(obj,target,handx,handy,timer){
     return [s1,hand];
   }
   _this.move = function(){
+        var perbounds = _this.target.getBounds();
+        var w = perbounds.width;
+        var h = perbounds.height;
+        var x = perbounds.x;
+        var y = perbounds.y;
     _this.sh = _this.start();
     var gp={x:0,y:0};
     gp.x = _this.sh[0].x+(_this.target.x  - _this.sh[0].x)*0.2;
     gp.y = _this.sh[0].y+(_this.target.y  - _this.sh[0].y)*0.9;
     cjs.Tween.get(_this.sh[0]).to({
       guide: {
-        path: [ _this.sh[0].x, _this.sh[0].y, gp.x, gp.y,_this.target.x, _this.target.y]
+        path: [ _this.sh[0].x, _this.sh[0].y, gp.x, gp.y,_this.target.x+w*0.5, _this.target.y+h*0.5]
       },scaleX:1,scaleY:1
     }, _this.timer, cjs.Ease.quadOut).to({alpha:0},150).call(()=>{
       if (_this.sh[0]) {
@@ -728,35 +766,123 @@ window.handAnimation = function(obj,target,handx,handy,timer){
 
 
 window.clearImg = function(num1,num2,dir){
+  var sti = 750;
+  var al =0.2;
+  ding.play();
   if (dir) {
     for (let index = 0; index <= 9; index++) {
       // console.log(index)
-      cjs.Tween.get(ss.children[index *10+ num1].children[1]).to({
-        alpha: 0.1
-      }, 150).to({
+      // ffffa6
+      var simgname1 = "simg1" + random1(1, 9999);
+      var simg1 = addBitmap(simgname1, sguang_, 0, 0, "addArr6");
+      simg1.regX = 56 * 0.5;
+      simg1.regY = 56 * 0.5;
+      simg1.x = ss.children[index * 10 + num1].children[1].x;
+      simg1.y = ss.children[index * 10 + num1].children[1].y;
+      simg1.alpha=0;
+      simg1.shadow = new createjs.Shadow("#ffffa6", 0, 0, 10);
+      
+      ss.children[index * 10 + num1].addChild(simg1);
+      cjs.Tween.get(ss.children[index * 10 + num1].children[ss.children[index * 10 + num1].children.length - 1]).wait((index * 45)).to({
         alpha: 1
-      }, 150).to({
-        alpha: 0.1
-      }, 150).to({
-        alpha: 1
-      }, 150).to({
+      }, 350).wait(sti / 2).to({
         alpha: 0
-      }, 150)
+      }, sti * 0.6);
+      cjs.Tween.get(ss.children[index * 10 + num1].children[ss.children[index * 10 + num1].children.length - 1]).wait((index * 45) + 350)
+        .to({
+          rotation: 480
+        }, sti * 4)
+      cjs.Tween.get(ss.children[index * 10 + num1].children[ss.children[index * 10 + num1].children.length - 1]).wait((index * 45) + 350)
+        .to({
+          scaleX: 0.5,
+          scaleY: 0.5
+        }, sti)
+      cjs.Tween.get(ss.children[index * 10 + num1].children[1]).wait((index * 45)+350)
+      
+      // .to({
+      //   alpha:al
+      // }, sti).to({
+      //   alpha: 1
+      // }, sti).to({
+      //   alpha:al
+      // }, sti).to({
+      //   alpha: 1
+      // }, sti)
+      .wait(sti / 2).to({
+        alpha: 0
+      }, sti*0.5)
+      cjs.Tween.get(ss.children[index * 10 + num1].children[1]).wait((index * 45)+350)
+        .to({
+          rotation: 480
+        }, sti * 4)
+      cjs.Tween.get(ss.children[index * 10 + num1].children[1]).wait((index * 45)+350)
+        .to({
+          scaleX: 0.5,
+          scaleY: 0.5
+        }, sti)
     }
   }else{
     for (let index = 0; index <= num2 - num1; index++) {
-      cjs.Tween.get(ss.children[num1 + index].children[1]).to({
-        alpha: 0.1
-      }, 150).to({
+      var simgname1 = "simg1" + random1(1, 9999);
+      var simg1 = addBitmap(simgname1, sguang_, 0, 0, "addArr6");
+      simg1.regX = 56 * 0.5;
+      simg1.regY = 56 * 0.5;
+      simg1.x = ss.children[num1 + index].children[1].x;
+      simg1.y = ss.children[num1 + index].children[1].y;
+      simg1.alpha = 0;
+      simg1.shadow = new createjs.Shadow("#ffffa6", 0, 0, 10);
+
+      ss.children[num1 + index].addChild(simg1);
+      cjs.Tween.get(ss.children[num1 + index].children[ss.children[num1 + index].children.length - 1]).wait((index * 45)).to({
         alpha: 1
-      }, 150).to({
-        alpha: 0.1
-      }, 150).to({
-        alpha: 1
-      }, 150).to({
+      }, 350).wait(sti / 2).to({
         alpha: 0
-      }, 150)
+      }, sti * 0.6);
+      cjs.Tween.get(ss.children[num1 + index].children[ss.children[num1 + index].children.length - 1]).wait((index * 45) + 350)
+        .to({
+          rotation: 480
+        }, sti * 4)
+      cjs.Tween.get(ss.children[num1 + index].children[ss.children[num1 + index].children.length - 1]).wait((index * 45) + 350)
+        .to({
+          scaleX: 0.6,
+          scaleY: 0.6
+        }, sti)
+      cjs.Tween.get(ss.children[num1 + index].children[1]).wait((index * 45) + 350)
+      // .to({
+      //   alpha:al
+      // }, sti).to({
+      //   alpha: 1
+      // }, sti).to({
+      //   alpha:al
+      // }, sti).to({
+      //   alpha: 1
+      // }, sti)
+      .wait(sti/2).to({
+        alpha: 0
+      }, sti * 0.5)
+      cjs.Tween.get(ss.children[num1 + index].children[1]).wait((index * 45)+350)
+        .to({
+          rotation: 480
+        }, sti*4)
+      cjs.Tween.get(ss.children[num1 + index].children[1]).wait((index * 45)+350)
+        .to({
+          scaleX: 0.6, scaleY: 0.6
+        }, sti)
+          // if (ss.children[num1 + index].children.length > 3) {
+          //   cjs.Tween.get(ss.children[num1 + index].children[1]).to({
+          //     alpha:al
+          //   }, sti).to({
+          //     alpha: 1
+          //   }, sti).to({
+          //     alpha:al
+          //   }, sti).to({
+          //     alpha: 1
+          //   }, sti).to({
+          //     alpha: 0
+          //   }, sti)
+          // }
     }
+
   }
 
 }

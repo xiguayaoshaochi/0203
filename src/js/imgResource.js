@@ -5,11 +5,11 @@ import bg_ from "../images/bigimg/bg.jpg"
 
 // SK
 // Japan
-window.language = 'SK';
+window.language = 'Japan';
 
 window.advword = '';
 
-let imgArr = ["sprite", "n1", "n2", "b1", "b2", "a1", "a2","a3"
+let imgArr = ["sprite"
 ];
 let imgNum = 0;
 imgArr.forEach((item) => {
@@ -69,58 +69,6 @@ function loadCompleteimgArr() {
 
 
 
-
-
-  var particle_all1 = new createjs.SpriteSheet({
-    framerate: 15,
-    "images": [n1_, n2_],
-    "frames": {
-      "regX": 0,
-      "height": 500,
-      "count": 50,
-      "regY": 0,
-      "width": 250
-    },
-    "animations": {
-      "start": [0, 49, "stop", 1],
-      "start1": [0, 49, "start1", 1],
-      "stop": [49],
-    },
-  });
-
-  var particle_all2 = new createjs.SpriteSheet({
-    framerate: 15,
-    "images": [b1_, b2_],
-    "frames": {
-      "regX": 0,
-      "height": 500,
-      "count": 50,
-      "regY": 0,
-      "width": 250
-    },
-    "animations": {
-      "start": [0, 49, "stop", 1],
-      "start1": [0, 49, "start1", 1],
-      "stop": [49],
-    },
-  });
-
-  var particle_all3 = new createjs.SpriteSheet({
-    framerate: 15,
-    "images": [a1_, a2_, a3_],
-    "frames": {
-      "regX": 0,
-      "height": 500,
-      "count": 37,
-      "regY": 0,
-      "width": 500
-    },
-    "animations": {
-      "start": [0, 36, "stop", 1],
-      "start1": [0, 36, "start1", 1],
-      "stop": [36],
-    },
-  });
 
 
 
@@ -295,37 +243,37 @@ function loadCompleteimgArr() {
     //   }
     // })
 
-    // document.addEventListener('visibilitychange', function () {
+    document.addEventListener('visibilitychange', function () {
 
-    //   // 用户离开了当前页面
-    //   setTimeout(function () {
-    //     if (document.visibilityState === 'hidden') {
-    //       createjs.Ticker.paused = 1;
-    //       if (musicState != null) {
-    //         // gainNode.gain.value=0;
-    //         audioCtx.suspend();
-    //         wb.open.alpha = 0;
-    //         wb.close.alpha = 1;
-    //       }
+      // 用户离开了当前页面
+      setTimeout(function () {
+        if (document.visibilityState === 'hidden') {
+          createjs.Ticker.paused = 1;
+          if (musicState != null) {
+            // gainNode.gain.value=0;
+            audioCtx.suspend();
+            // wb.open.alpha = 0;
+            // wb.close.alpha = 1;
+          }
 
-    //     }
-    //   }, 200)
+        }
+      }, 200)
 
 
-    //   // 用户打开或回到页面
-    //   setTimeout(function () {
-    //     if (document.visibilityState === 'visible') {
-    //       createjs.Ticker.paused = 0;
-    //       if (musicState == "play") {
-    //         // gainNode.gain.value=1;
-    //         audioCtx.resume();
-    //         wb.open.alpha = 1;
-    //         wb.close.alpha = 0;
-    //       }
-    //     }
-    //   }, 250)
+      // 用户打开或回到页面
+      setTimeout(function () {
+        if (document.visibilityState === 'visible') {
+          createjs.Ticker.paused = 0;
+          if (musicState == "play") {
+            // gainNode.gain.value=1;
+            audioCtx.resume();
+            // wb.open.alpha = 1;
+            // wb.close.alpha = 0;
+          }
+        }
+      }, 250)
 
-    // });
+    });
 
     // wb.open.alpha = 1;
     // wb.close.alpha = 0;
