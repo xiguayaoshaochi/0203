@@ -21,7 +21,6 @@ imgArr.forEach((item) => {
       console.log("loadCompleteimgArr")
       loadCompleteimgArr();
     }
-
   }).catch(err => {
     console.log(err.message);
   });
